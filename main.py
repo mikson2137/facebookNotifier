@@ -25,7 +25,7 @@ def webhook_sender(uzyt, grupa, desc, when, jakagrupa):
     embed.add_field(name="Opis", value=desc, inline=False)
 
     webhook = Webhook.from_url(
-        "https://discord.com/api/webhooks/953063740952174632/JI10MKVDc7TwubNrOwLtjABdhQr_I0o8A7OgWlP_Y2RGazDjGAyCBCUbZq9zASwv7gdd",
+        "DISCORD_WEBHOOK",
         adapter=RequestsWebhookAdapter())
 
     webhook.send(content="@everyone", wait=False, username="Facebook Notificator",
