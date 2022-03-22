@@ -7,6 +7,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
+linki = {
+    '1': "https://mbasic.facebook.com/groups/1020756002181896",
+    '2': "",
+    '3': "",
+    '4': "",
+    '5': ""
+}
+
 
 def webhook_sender(uzyt, grupa, desc, when, jakagrupa):
     embed = discord.Embed(color=0xff0000)
@@ -17,7 +25,7 @@ def webhook_sender(uzyt, grupa, desc, when, jakagrupa):
     embed.add_field(name="Opis", value=desc, inline=False)
 
     webhook = Webhook.from_url(
-        "DISCORD_WEBHOOK",
+        "https://discord.com/api/webhooks/953063740952174632/JI10MKVDc7TwubNrOwLtjABdhQr_I0o8A7OgWlP_Y2RGazDjGAyCBCUbZq9zASwv7gdd",
         adapter=RequestsWebhookAdapter())
 
     webhook.send(content="@everyone", wait=False, username="Facebook Notificator",
@@ -31,9 +39,9 @@ def login():
         (By.XPATH, "//button[@title='Zezwól na korzystanie z niezbędnych i opcjonalnych plików cookie']"))).click()
     time.sleep(0.5)
     email = driver.find_element_by_xpath("//input[@placeholder='Adres e-mail lub numer telefonu']").send_keys(
-        "EMAIL")
+        "mikomiki730@gmail.com")
     time.sleep(1)
-    passw = driver.find_element_by_xpath("//input[@placeholder='Hasło']").send_keys("PASSWORD")
+    passw = driver.find_element_by_xpath("//input[@placeholder='Hasło']").send_keys("")
     time.sleep(0.5)
     complete = driver.find_element(by=By.XPATH, value="//button[@name='login']").click()
     time.sleep(1)
@@ -53,16 +61,7 @@ def group():
     return uzyt, grupa, desc, when
 
 
-if __name__ == '__main__':
-    linki = {
-        '1': "GROUP_LINK",
-        '2': "GROUP_LINK",
-        '3': "GROUP_LINK",
-        '4': "GROUP_LINK",
-        '5': "GROUP_LINK"
-    }
-    driver = uc.Chrome()
-    driver.maximize_window()
+def main():
     login()
     driver.execute_script(f"window.open('https://www.google.com', 'new_window')")
     input()
@@ -90,3 +89,9 @@ if __name__ == '__main__':
                 print(olduser)
 
         time.sleep(60)
+
+
+if __name__ == '__main__':
+    driver = uc.Chrome()
+    driver.maximize_window()
+    main()
