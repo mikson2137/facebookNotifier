@@ -8,11 +8,11 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 linki = {
-    '1': "https://mbasic.facebook.com/groups/1020756002181896",
-    '2': "",
-    '3': "",
-    '4': "",
-    '5': ""
+    '1': "LINK",
+    '2': "LINK",
+    '3': "LINK",
+    '4': "LINK",
+    '5': "LINK"
 }
 
 
@@ -39,9 +39,9 @@ def login():
         (By.XPATH, "//button[@title='Zezwól na korzystanie z niezbędnych i opcjonalnych plików cookie']"))).click()
     time.sleep(0.5)
     email = driver.find_element_by_xpath("//input[@placeholder='Adres e-mail lub numer telefonu']").send_keys(
-        "mikomiki730@gmail.com")
+        "EMAIL")
     time.sleep(1)
-    passw = driver.find_element_by_xpath("//input[@placeholder='Hasło']").send_keys("")
+    passw = driver.find_element_by_xpath("//input[@placeholder='Hasło']").send_keys("PASSWORD")
     time.sleep(0.5)
     complete = driver.find_element(by=By.XPATH, value="//button[@name='login']").click()
     time.sleep(1)
